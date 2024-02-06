@@ -1,0 +1,95 @@
+\documentclass{l3doc}
+\usepackage{
+    float,
+    booktabs,
+    emotion,
+    fontspec,
+    geometry,
+    graphicx,
+    longtable,
+    xcolor,
+    listings
+}
+\setmainfont{KpMath Light}
+
+\geometry{
+  a4paper,
+  top=25.4mm, bottom=25.4mm,
+  left=20mm, right=20mm,
+  headheight=2.17cm,
+  headsep=4mm,
+  footskip=12mm
+}
+
+\definecolor{mymagenta}{HTML}{EB2F96}
+\definecolor{mywinered}{rgb}{0.5,0,0}
+
+\emotionsetup{Twemoji Mozilla}
+
+\begin{document}
+
+\title{\emotion{😄} Emotion}
+\author{\href{https://github.com/ourfor}{\textcolor{mywinered}{ourfor}}}
+\date{Spring 2024}
+
+\maketitle
+
+\section{Usage}
+
+\subsection{Setup emoji font}
+You can use your favorite emoji font. 
+command \textcolor{mymagenta}{\textbackslash emotionsetup}
+accept one parameter(font name), which you have installed in your
+computer
+
+\emotionsetup{Twemoji Mozilla}
+\begin{lstlisting}{language=latex}
+\emotionsetup{Twemoji Mozilla}
+\end{lstlisting}
+
+\subsection{Use emoji symbol}
+
+Command \textcolor{mymagenta}{\textbackslash emotion} accept one parameter.
+the parameter can be emoji symbol or the defined emoji id
+
+\begin{table}[H]
+\begin{tabular}{cc}
+\textbackslash emotion\{\emotion{☃}\} & \emotion{☃} \\
+\textbackslash emotion\{\emotion{☘}\} & \emotion{☘} \\
+\textbackslash emotion\{\emotion{☝}\} & \emotion{☝} \\
+\textbackslash emotion\{\emotion{☠}\} & \emotion{☠} \\
+\textbackslash emotion\{\emotion{🥵}\} & \emotion{🥵} \\
+\textbackslash emotion\{\emotion{✌🏾}\} & \emotion{🇨🇳} \\
+\textbackslash emotion\{\emotion{🇱🇷}\} & \emotion{㊙} \\
+\textbackslash emotion\{\emotion{♀}\} & \emotion{♀} \\
+\end{tabular}
+\end{table}
+
+\subsection{Custom emoji alias}
+
+Command \textcolor{mymagenta}{\textbackslash emotiondef} need two parameters, 
+one is the emoji id, the other is emoji value(emoji symbol or unicode value)
+
+\emotiondef{apple}{🍎}
+\emotiondef{tea}{🍵}
+\emotiondef{A}{^^^^^^01f1e6}
+
+\begin{table}[H]
+\begin{tabular}{l}
+\textbackslash emotiondef\{apple\}\{\emotion{🍎}\} \\
+\textbackslash emotiondef\{tea\}\{\emotion{🍵}\} \\
+\textbackslash emotiondef\{A\}\{\^{}\^{}\^{}\^{}\^{}\^{}01f1e6\} \\
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{ll}
+\textbackslash emotion\{apple\} & \emotion{apple} \\
+\textbackslash emotion\{tea\} & \emotion{tea} \\
+\textbackslash emotion\{A\} & \emotion{A}
+\end{tabular}
+\end{table}
+
+
+\end{document}
+        
