@@ -1,4 +1,11 @@
+<H2 style="text-align:center">
 😄 Emotion
+</H2>
+
+There are many emojis with long names, and we cannot remember them all. At the same time, when we
+type an emoji, we want to see what it looks like in text editor. Now, you do not need to remember the emoji
+name, just select it from the keyboard and wrap it with `\emotion{}`. Unlike other emoji packages, you can use
+emojis more easily and flexibility.
 
 ## Usage
 
@@ -25,12 +32,14 @@ the parameter can be emoji symbol or the defined emoji id
 
 ### Custom emoji alias
 
-Command `\emotiondef` need two parameters, 
-one is the emoji id, the other is emoji value(emoji symbol or unicode value)
+Sometimes, typing a emoji symbol is not easy. Therefore, we also provide a command to simplify
+the process. The command `\emotiondef` requires two parameters: 
+one is the emoji id, and the other is emoji value(either the emoji symbol or its unicode value).
 
 ```latex
 \emotiondef{apple}{🍎}
 \emotiondef{tea}{🍵}
+\emotiondef{!}{❗️}
 \emotiondef{A}{^^^^^^01f1e6}
 ```
 
@@ -38,4 +47,14 @@ one is the emoji id, the other is emoji value(emoji symbol or unicode value)
 \emotion{apple}
 \emotion{tea}
 \emotion{A}
+\emotion{!}
 ```
+
+
+### License
+
+[Apache License 2.0](http://github.com/ourfor/LaTeX-emotion/LICENSE)
+
+-----
+
+Copyright (C) 2023-2024 by Xuwang Zeng

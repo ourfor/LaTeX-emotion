@@ -29,10 +29,16 @@
 \begin{document}
 
 \title{\emotion{😄} Emotion}
-\author{\href{https://github.com/ourfor}{\textcolor{mywinered}{ourfor}}}
+\author{\href{https://github.com/ourfor}{\textcolor{mywinered}{zengxuwang}}}
 \date{Spring 2024}
 
 \maketitle
+
+There are many emojis with long names, and we cannot remember them all.
+At the same time, when we type an emoji, we want to see what it
+looks like in text editor. Now, you do not need to remember the emoji name, 
+just select it from the keyboard and wrap it with \textbackslash{}emotion.
+Unlike other emoji packages, you can use emojis more easily and flexibility.
 
 \section{Usage}
 
@@ -67,11 +73,13 @@ the parameter can be emoji symbol or the defined emoji id
 
 \subsection{Custom emoji alias}
 
-Command \textcolor{mymagenta}{\textbackslash emotiondef} need two parameters, 
-one is the emoji id, the other is emoji value(emoji symbol or unicode value)
+Sometimes, typing a emoji symbol is not easy. Therefore, we also provide a command to simplify
+the process. The command \textcolor{mymagenta}{\textbackslash emotiondef} requires two parameters: 
+one is the emoji id, and the other is emoji value(either the emoji symbol or its unicode value).
 
 \emotiondef{apple}{🍎}
 \emotiondef{tea}{🍵}
+\emotiondef{!}{❗️}
 \emotiondef{A}{^^^^^^01f1e6}
 
 \begin{table}[H]
@@ -79,6 +87,7 @@ one is the emoji id, the other is emoji value(emoji symbol or unicode value)
 \textbackslash emotiondef\{apple\}\{\emotion{🍎}\} \\
 \textbackslash emotiondef\{tea\}\{\emotion{🍵}\} \\
 \textbackslash emotiondef\{A\}\{\^{}\^{}\^{}\^{}\^{}\^{}01f1e6\} \\
+\textbackslash emotiondef\{!\}\{\emotion{❗️️}\} \\
 \end{tabular}
 \end{table}
 
@@ -86,7 +95,8 @@ one is the emoji id, the other is emoji value(emoji symbol or unicode value)
 \begin{tabular}{ll}
 \textbackslash emotion\{apple\} & \emotion{apple} \\
 \textbackslash emotion\{tea\} & \emotion{tea} \\
-\textbackslash emotion\{A\} & \emotion{A}
+\textbackslash emotion\{A\} & \emotion{A} \\
+\textbackslash emotion\{!\} & \emotion{!} \\
 \end{tabular}
 \end{table}
 
