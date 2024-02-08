@@ -17,21 +17,21 @@
 % 1: id
 % 2: unicode value
 \newcommand{\emotiondef}[2]{
-    \tl_const:cn{l_emotion_ #1}{#2}
+    \tl_const:cn{l__emotion_ #1}{#2}
 }
 
 % import pre-defined emotion
 \file_input:n { emotion.def }
 
-\tl_set:Nn \l_emotion_tmp_tl {❓}
+\tl_set:Nn \l__emotion_tmp_tl {❓}
 
 \newcommand{\emotion}[1]{
 \group_begin:
-\tl_set:Nn \l_emotion_tmp_tl {#1}
-\ifcsname l_emotion_#1\endcsname
-    {\emotionfont:{\tl_use:c {l_emotion_ #1}}}
+\tl_set:Nn \l__emotion_tmp_tl {#1}
+\ifcsname l__emotion_#1\endcsname
+    {\emotionfont:{\tl_use:c {l__emotion_ #1}}}
 \else
-    {\emotionfont:{\tl_use:N \l_emotion_tmp_tl}}
+    {\emotionfont:{\tl_use:N \l__emotion_tmp_tl}}
 \fi
 \group_end:
 }
