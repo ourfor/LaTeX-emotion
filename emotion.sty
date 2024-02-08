@@ -1,33 +1,9 @@
 \RequirePackage{expl3}
 \ProvidesExplPackage{emotion}{2024/02/06}{0.1}{LaTeX emoji}
 
-\RequirePackage { fontspec, luacode }
+\RequirePackage { fontspec }
 
-\begin{luacode}
-function unicodes(chs)
-    local text = ""
-    for _, c in utf8.codes(chs) do
-        text = text .. unicode(c)
-    end
-    tex.sprint(text)
-end
-
-function unicode(codepoint)
-    local value = NULL
-    if codepoint > 0xFFFF then
-        value = string.format("^^^^^^%06x", codepoint)
-    elseif codepoint > 0xFF then
-        value = string.format("^^^^%04x", codepoint)
-    else
-        value = string.format("^^%02x", codepoint)
-    end
-    return value
-end
-\end{luacode}
-
-\newcommand{\getunicode}[1]{%
-    \luaexec{unicodes('#1')}
-}
+\ExplSyntaxOn
 
 % add emotion command
 \newfontface \emotionfont: { Apple~Color~Emoji } [ Renderer = Harfbuzz ]
@@ -41,18 +17,25 @@ end
 % 1: id
 % 2: unicode value
 \newcommand{\emotiondef}[2]{
-    \tl_const:cn{const_emoji_ #1}{#2}
+    \tl_const:cn{l_emotion_ #1}{#2}
 }
 
 % import pre-defined emotion
 \file_input:n { emotion.def }
 
+\tl_set:Nn \l_emotion_tmp_tl {❓}
+
 \newcommand{\emotion}[1]{
-\ifcsname const_emoji_#1\endcsname
-    {\emotionfont:{\tl_use:c {const_emoji_ #1}}}
+\group_begin:
+\tl_set:Nn \l_emotion_tmp_tl {#1}
+\ifcsname l_emotion_#1\endcsname
+    {\emotionfont:{\tl_use:c {l_emotion_ #1}}}
 \else
-    {\emotionfont:{\getunicode{#1}}}
+    {\emotionfont:{\tl_use:N \l_emotion_tmp_tl}}
 \fi
+\group_end:
 }
+
+\ExplSyntaxOff
 
 \endinput
