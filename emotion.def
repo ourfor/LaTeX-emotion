@@ -1,5 +1,5 @@
 \ProvidesExplFile{emotion.def}
-    {2024/02/06}{0.1}{LaTeX emoji}
+    {2024/02/13}{0.2}{LaTeX emoji}
 
 \tl_const:cn{l__emotion_ 🇦}{^^^^^^01f1e6}
 \tl_const:cn{l__emotion_ 🇧}{^^^^^^01f1e7}
